@@ -18,7 +18,5 @@ jobs:
       uses: azure/login@v3
       with:
         creds: ${{secrets.AZURE_CREDENTIALS}}
-    - name: Validate Azure ML settings
-      shell: bash
     - name: Run Azure Machine Learning training job
       run: az ml job create -f src/job.yml --stream --resource-group "${RESOURCE_GROUP}" --workspace-name "${WORKSPACE_NAME}"
